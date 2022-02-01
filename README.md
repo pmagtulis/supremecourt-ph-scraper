@@ -7,7 +7,8 @@ This is an auto-scraper that automatically collects new information from the web
 
 # Recent updates
 
-This is currently being developed.
+This is currently being developed. One initial problem noticed is the length of time it takes for the scraper to get information per each case link.
+Suggestions are welcome.
 
 # What is this for?
 
@@ -19,3 +20,9 @@ The ideal final output of this project should be able to answer the following qu
 * Which division of the court has disposed of most cases?
 
 More practically, the output here should allow the use to search random cases and know how the case was decided and other pertinent matters in an instant.
+
+# Contact
+
+Prinz Magtulis, [ppm2130@columbia.edu](mailto:ppm2130@columbia.edu)
+
+**Comments and suggestions are always welcome! All rights reserved.**
