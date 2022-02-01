@@ -10,6 +10,8 @@ This is an auto-scraper that automatically collects new information from the web
 This is currently being developed. One initial problem noticed is the length of time it takes for the scraper to get information per each case link.
 Suggestions are welcome.
 
+A sample data frame (that which generates a summary of all cases, dates, links and GR nos.) was provided.
+
 # What is this for?
 
 The ideal final output of this project should be able to answer the following questions and more:
