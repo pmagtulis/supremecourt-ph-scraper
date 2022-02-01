@@ -1,4 +1,4 @@
-# supremecourt-ph-cases
+# supremecourt-ph-decisions
 
 # What is this?
 
