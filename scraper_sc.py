@@ -128,7 +128,10 @@ for details in dataset2[0:]:
     doc = BeautifulSoup(raw_html, "html.parser")
     info={}
     info['division'] = doc.find('h2').text
-    info['ponente'] = doc.find('strong').text
+    try:
+        info['ponente'] = doc.find('strong').text
+    except:
+        break
     info['case_link'] = details ['case_link']
     dataset3.append(info)
 dataset3
@@ -145,7 +148,7 @@ dataset3
 # * Date of promulgation
 # * Web link to the actual case
 
-# In[ ]:
+# In[21]:
 
 
 df1 = pd.DataFrame(dataset2)
