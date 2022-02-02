@@ -32,8 +32,7 @@ The following information were scraped from the website:
 |**case_no.**|a unique identifier to each case most commonly begins with the letters **GR**.| 
 |**title**|title of the case including the plaintiff's and the defendants' names|
 |**date**|date of promulgation of the court decision|
-|**division**|division of the Supreme Court which handled the case. Each division typically consists of 3 to 4 members, including a chairperson. Full court deliberations are referred to as **en banc**|  
-|**ponente**|the name of the justice in charge of writing the decision for the majority|
+|**case_link**|link to the actual decision of the court|  
 
 # Contact
 
