@@ -116,23 +116,31 @@ for case in dataset1[0:]:
 
 
 # ## Case details
+# 
+# Okay, didn't mean this to be messy but for some reason a single code block wouldn't get us all the information we need across all cases **(perhaps it's a website problem, not sure)**. 
+# 
+# But one thing's for sure is the code works here, it's just a matter of spreading it out so it requests fewer information one set at a time, rather than in one block. Hence below you would see **a number of lists of dictionaries**.
+# 
+# We would combine all of these into a single data frame in the next section.
 
-# In[ ]:
+# In[21]:
 
 
 dataset3=[]
 for details in dataset2[0:]:
     href = details['case_link']
     raw_html = requests.get(href, verify=False).content
-    #time.sleep(2)
     doc = BeautifulSoup(raw_html, "html.parser")
     container = doc.find('div', {"id": "left"})
     info={}
-    info['division'] = container.find('h2').text
+    try:
+        info['division'] = container.find('h2').text
+    except:
+        info['division'] = None 
     try:
         info['ponente'] = container.find('strong').text
     except:
-        break
+        info['ponente'] = None 
     info['case_link'] = details ['case_link']
     dataset3.append(info)
 dataset3
@@ -149,7 +157,7 @@ dataset3
 # * Date of promulgation
 # * Web link to the actual case
 
-# In[ ]:
+# In[37]:
 
 
 df1 = pd.DataFrame(dataset2)
@@ -164,7 +172,7 @@ df1
 # * Court division where the case was raffled
 # * Web link
 
-# In[ ]:
+# In[58]:
 
 
 df2 = pd.DataFrame(dataset3)
@@ -175,7 +183,7 @@ df2
 # 
 # We will combine the two dfs and remove duplicates to have one single df.
 
-# In[ ]:
+# In[20]:
 
 
 merged = df1.merge(df2, suffixes=('_left'))
