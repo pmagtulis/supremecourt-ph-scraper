@@ -94,7 +94,7 @@ dataset1
 # 
 # So after grabbing all links containing a list of cases decided each month, we now turn to the **specific** case links. These case links contain some vital information we would like to scrape so that we don't need to do the same once we're **inside** each link.
 
-# In[6]:
+# In[5]:
 
 
 dataset2=[]
@@ -126,10 +126,11 @@ for details in dataset2[0:]:
     raw_html = requests.get(href, verify=False).content
     #time.sleep(2)
     doc = BeautifulSoup(raw_html, "html.parser")
+    container = doc.find('div', {"id": "left"})
     info={}
-    info['division'] = doc.find('h2').text
+    info['division'] = container.find('h2').text
     try:
-        info['ponente'] = doc.find('strong').text
+        info['ponente'] = container.find('strong').text
     except:
         break
     info['case_link'] = details ['case_link']
@@ -148,7 +149,7 @@ dataset3
 # * Date of promulgation
 # * Web link to the actual case
 
-# In[21]:
+# In[ ]:
 
 
 df1 = pd.DataFrame(dataset2)
