@@ -7,11 +7,11 @@ This is an auto-scraper that automatically collects new information from the web
 
 # Recent updates
 
-This is currently being developed. One initial problem noticed is the length of time it takes for the scraper to get information per each case link.
-It takes a long time for the scraper to get the info (ponente, court division) needed, hence I dropped that code for now to focus only on the case titles, date,
-and links to actual cases.
+This is currently being developed. One problem noticed is the length of time it takes for the scraper to get information per each case link via requests.
+That was meant to get info such as ponente of the case and court division. It appears that it would need **aysnc scraping methods**. Suggestions on how
+to do it are welcome! 
 
-A sample data frame (that which generates a summary of all cases, dates, links and GR nos.) was provided.
+For now, that part of the scraper has been hence I **dropped.**
 
 # What is this for?
 
@@ -24,7 +24,7 @@ More practically, the output here should allow the use to search random cases an
 
 # Definition of terms
 
-The following information were scraped from the website:
+The following information are still scraped from the high court website:
 
 |column name|definition|
 |---|---|
