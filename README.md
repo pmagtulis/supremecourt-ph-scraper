@@ -33,6 +33,10 @@ The following information are still scraped from the high court website:
 |**date**|date of promulgation of the court decision|
 |**case_link**|link to the actual decision of the court|  
 
+# Requirements for use
+
+* Python: bs4
+
 # Contact
 
 Prinz Magtulis, [ppm2130@columbia.edu](mailto:ppm2130@columbia.edu)
