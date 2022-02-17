@@ -7,11 +7,9 @@ This is an auto-scraper that automatically collects new information from the web
 
 # Recent updates
 
-This is currently being developed. One problem noticed is the length of time it takes for the scraper to get information per each case link via requests.
-That was meant to get info such as ponente of the case and court division. It appears that it would need **aysnc scraping methods**. Suggestions on how
-to do it are welcome! 
-
-For now, that part of the scraper has been hence I **dropped.**
+|date|update|
+|---|---|
+|*Feb 17|Finally fixed the concurrent futures to scrape the division and ponente of each decision. Many thanks to the code review from Jasen!| 
 
 # What is this for?
 
@@ -32,10 +30,12 @@ The following information are still scraped from the high court website:
 |**title**|title of the case including the plaintiff's and the defendants' names|
 |**date**|date of promulgation of the court decision|
 |**case_link**|link to the actual decision of the court|  
+|**division**|the division of the court that rendered the decision. Typically, SC divisions are composed of three to four members| 
+|**ponente**|the justice who wrote the decision who voted with the majority in the case. Only surname is provided.|  
 
 # Requirements for use
 
-* Python: bs4
+* Python: bs4, pandas
 
 # Contact
 
