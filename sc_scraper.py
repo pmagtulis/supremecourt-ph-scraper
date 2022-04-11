@@ -32,7 +32,7 @@
 # 
 # This will be atypically longer than usual since I am importing some libraries like **warnings** to remove them from the output.
 
-# In[1]:
+# In[4]:
 
 
 import pandas as pd
@@ -75,7 +75,7 @@ soup_doc = BeautifulSoup(raw_html, "html.parser")
 # 
 # Hence, to be able to get through the case files themselves, which is what we want, we need to go through these set of links. We start with the **month links** which I termed **parent links**.
 
-# In[4]:
+# In[2]:
 
 
 main_link=[]
@@ -145,7 +145,10 @@ loop(download_decisions, main_link)
 writer_division=[]
 def download_url(details): 
     href = details ['case_link']
-    raw_html = requests.get(href, verify=False).content
+    try:
+        raw_html = requests.get(href, verify=False).content
+    except:
+        raw_html = requests.get(href, verify=False).content
     doc = BeautifulSoup(raw_html, "html.parser")
     container = doc.find('div', {"id": "left"})
     info={}
