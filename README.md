@@ -9,7 +9,7 @@ This is an auto-scraper that automatically collects new information from the web
 
 |date|update|
 |---|---|
-|*Feb 17|Finally fixed the concurrent futures to scrape the division and ponente of each decision. Many thanks to the code review from Jasen!| 
+|*Feb 17*|Finally fixed the concurrent futures to scrape the division and ponente of each decision. Many thanks to the code review from Jasen!| 
 
 # What is this for?
 
