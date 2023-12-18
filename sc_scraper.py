@@ -40,7 +40,7 @@ for row in every_row[:12]:
 main_link
 
 # %% [markdown]
-# ## Scrape the contents of those 24 months
+# ## Scrape the contents of those 12 months
 # 
 # ### First, the case no., title, date, and link
 
@@ -156,16 +156,15 @@ old_decisions
 # This is key here: we need to make sure that no decisions are duplicated when we merge them to ensure accuracy. The original CSV we have has data as late as **August 2021**. Therefore we only need decisions from **August 2021 upwards**.
 
 # %%
-df_combined = (pd.concat([merged, old_decisions]).drop_duplicates(subset=["case_no", "date", "title", "case_link", "division", "ponente"], keep="first").reset_index(drop=True))
+df_combined = (pd.concat([merged, old_decisions]).drop_duplicates(subset=["case_no", "title", "case_link", "division", "ponente"], keep="first").reset_index(drop=True))
+df_combined
+
+# %%
+df_combined.date = pd.to_datetime(df_combined.date)
 df_combined
 
 # %% [markdown]
 # ## Sort according to date
-
-# %%
-df_combined.date =df_combined.date.str.replace(',', "")
-df_combined.date = pd.to_datetime(df_combined.date)
-df_combined
 
 # %%
 df_combined = df_combined.sort_values('date').reset_index(drop=True)
