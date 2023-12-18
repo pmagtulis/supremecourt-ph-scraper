@@ -9,6 +9,7 @@ This is an auto-scraper that automatically collects new information from the web
 
 |date|update|
 |---|---|
+|*Dec. 17, 2023*|Fixed scraper| 
 |*Sept 12*|Updated GitHub actions to fix Chromium problems| 
 |*Feb 17*|Finally fixed the concurrent futures to scrape the division and ponente of each decision. Many thanks to the code review from Jasen!| 
 

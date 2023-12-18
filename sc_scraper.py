@@ -33,7 +33,7 @@ soup_doc = BeautifulSoup(raw_html, "html.parser")
 main_link=[]
 container = soup_doc.find("div", {"id": "container_date"})
 every_row = container.find_all('a')
-for row in every_row[:24]: 
+for row in every_row[:12]: 
     data={}
     data ['parent_link'] = row.attrs['href']
     main_link.append(data)
@@ -133,7 +133,12 @@ df_details = pd.DataFrame(writer_division)
 df_details
 
 # %%
-merged = df_summary.merge(df_details, suffixes=('_left'))
+merged = df_summary.merge(df_details, how='left')
+merged
+
+# %%
+merged.date =merged.date.str.replace(',', "")
+merged.date = pd.to_datetime(merged.date)
 merged
 
 # %% [markdown]
@@ -142,7 +147,7 @@ merged
 # Combine the newly scraped files with existing CSV that contains decisions from 1996.
 
 # %%
-old_decisions= pd.read_csv('csv/decisions-from-1996.csv')
+old_decisions= pd.read_csv('csv/complete_decisions.csv')
 old_decisions
 
 # %% [markdown]
@@ -151,7 +156,7 @@ old_decisions
 # This is key here: we need to make sure that no decisions are duplicated when we merge them to ensure accuracy. The original CSV we have has data as late as **August 2021**. Therefore we only need decisions from **August 2021 upwards**.
 
 # %%
-df_combined = (pd.concat([merged, old_decisions]).drop_duplicates(subset=["case_no", "title", "date", "case_link", "division", "ponente"], keep="first").reset_index(drop=True))
+df_combined = (pd.concat([merged, old_decisions]).drop_duplicates(subset=["case_no", "date", "title", "case_link", "division", "ponente"], keep="first").reset_index(drop=True))
 df_combined
 
 # %% [markdown]
